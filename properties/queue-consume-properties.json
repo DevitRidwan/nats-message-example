@@ -1,0 +1,50 @@
+{
+  "name_log":"queue-consume",
+  "nats": {
+    "address": "nats://localhost:4222",
+      "cluster_id": "test-cluster",
+      "client_id": "test-queue"
+  },
+  "database": {
+    "username": "postgres",
+    "password": "password",
+    "name": "db_queue",
+    "host": "localhost",
+    "port": "5432",
+    "maxIdleConns": 20
+  },
+  "logging": {
+    "output_paths": [
+      "/media/dvtrdw/Data/Go/src/Ridwan/Queue/log/consume/",
+      "stdout"
+    ],
+    "error_output_paths": [
+      "/media/dvtrdw/Data/Go/src/Ridwan/Queue/log/consume/",
+      "stderr"
+    ]
+  },
+  "topic": {
+    "base_url": "app.queue",
+    "environtment_status": "test",
+    "channel": [
+      {
+        "req_auth_message": {
+          "path": "req.consume",
+          "queue_name": "app-queue-auth-consume"
+        }
+      },
+      {
+        "req_consume_message": {
+          "path": "res.consume.",
+          "queue_name": "app-queue-consume"
+        }
+      },
+      {
+        "res_consume_message": {
+          "path": "res.consume",
+          "queue_name": "app-queue-consume"
+        }
+      }
+    ]
+  }
+}

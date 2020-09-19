@@ -1,0 +1,1 @@
+go run ../src/main/MainQueueManagement.go --configPath=/media/dvtrdw/Data/Go/src/Ridwan/Queue/properties --configName=queue-queuemanegement-properties

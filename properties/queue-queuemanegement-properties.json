@@ -1,0 +1,42 @@
+{
+    "name_log":"queue-management",
+    "nats": {
+      "address": "nats://localhost:4222"
+    },
+    "database": {
+      "username": "postgres",
+      "password": "password",
+      "name": "db_queue",
+      "host": "localhost",
+      "port": "5432",
+      "maxIdleConns": 20
+    },
+    "logging": {
+      "output_paths": [
+        "/media/dvtrdw/Data/Go/src/Ridwan/Queue/log/queue-management/",
+        "stdout"
+      ],
+      "error_output_paths": [
+        "/media/dvtrdw/Data/Go/src/Ridwan/Queue/log/produce/",
+        "stderr"
+      ]
+    },
+    "topic": {
+      "base_url": "app.queue",
+      "environtment_status": "test",
+      "channel": [
+        {
+          "req_create_queue": {
+            "path": "create",
+            "queue_name": "app-queue-create"
+          }
+        },
+        {
+          "req_delete_queue": {
+            "path": "delete",
+            "queue_name": "app-queue-delete"
+          }
+        }
+      ]
+    }
+  }
